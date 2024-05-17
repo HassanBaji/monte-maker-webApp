@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,30 +19,30 @@ const pages = [
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const navigate = useNavigate();
   const handleCloseNavMenu = (val) => {
     navigate(`/${val}`);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const handleCloseUserMenu = () => {};
 
   return (
     <AppBar
       position='static'
-      sx={{ backgroundColor: colors.primaryYellow, padding: 0 }}
+      sx={{
+        backgroundColor: '#FFFF',
+        boxShadow: 0,
+        borderRadius: 4
+      }}
       style={{ padding: 0 }}>
       <Container maxWidth='xl'>
-        <Toolbar sx={{ padding: 0, mr: -12, ml: -12 }}>
+        <Toolbar sx={{ padding: 0, mr: -12, ml: -12, height: 80 }}>
           <ChairIcon
             sx={{
               display: { xs: 'none', md: 'flex', color: colors.primaryText },
               mr: 1,
-              width: 32,
-              height: 32
+              width: 40,
+              height: 40
             }}
             color={colors.primaryText}
           />
@@ -59,14 +58,14 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: colors.primaryText,
               textDecoration: 'none',
-              fontFamily: fonts.primary
+              fontFamily: fonts.primary,
+              fontSize: 24
             }}>
             Montemaker
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <Menu
               id='menu-appbar'
-              anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left'
@@ -76,7 +75,6 @@ function ResponsiveAppBar() {
                 vertical: 'top',
                 horizontal: 'left'
               }}
-              open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' }
@@ -85,7 +83,11 @@ function ResponsiveAppBar() {
                 <MenuItem
                   key={page}
                   onClick={() => handleCloseNavMenu(page.value)}>
-                  <Typography textAlign='center'>{page.name}</Typography>
+                  <Typography
+                    textAlign='center'
+                    sx={{ fontSize: 40, ml: 4, mr: 4 }}>
+                    {page.name}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -122,7 +124,10 @@ function ResponsiveAppBar() {
                 sx={{
                   color: colors.primaryText,
                   display: 'block',
-                  fontFamily: fonts.primary
+                  fontFamily: fonts.primary,
+                  fontSize: 16,
+                  ml: 6,
+                  mr: 6
                 }}>
                 {page.name}
               </Button>
@@ -133,7 +138,6 @@ function ResponsiveAppBar() {
             <Menu
               sx={{ mt: '45px' }}
               id='menu-appbar'
-              anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right'
@@ -143,7 +147,6 @@ function ResponsiveAppBar() {
                 vertical: 'top',
                 horizontal: 'right'
               }}
-              open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}>
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>

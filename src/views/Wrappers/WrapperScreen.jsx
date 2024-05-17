@@ -1,15 +1,12 @@
+import { Box } from '@mui/material';
 import { Header } from '../../components/Header/index';
 import { Outlet } from 'react-router-dom';
 
-export const WrapperScreen = (props) => {
-  console.log('praps ' + JSON.stringify(props));
-  console.log('loaded');
+export const WrapperScreen = () => {
   return (
-    <div>
+    <Box>
       <Header />
-      <div>
-        <Outlet />
-      </div>
-    </div>
+      <Outlet />
+    </Box>
   );
 };

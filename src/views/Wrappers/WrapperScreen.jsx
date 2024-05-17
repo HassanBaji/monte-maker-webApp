@@ -1,15 +1,15 @@
-import React from "react"
+import { Header } from '../../components/Header/index';
+import { Outlet } from 'react-router-dom';
 
-
-
-export const WrapperScreen = (children) => {
-
-
-    
-    return (
-        <div>
-        {children}
-        </div>
-    )
-
-}
+export const WrapperScreen = (props) => {
+  console.log('praps ' + JSON.stringify(props));
+  console.log('loaded');
+  return (
+    <div>
+      <Header />
+      <div>
+        <Outlet />
+      </div>
+    </div>
+  );
+};

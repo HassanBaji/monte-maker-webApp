@@ -1,11 +1,9 @@
+import { Box, Typography } from '@mui/material';
+
 export const LandingScreen = () => {
-
-return (
-    <div>
-        <h5>
-            test
-        </h5>
-    </div>
-)
-
-}
+  return (
+    <Box>
+      <Typography>Landing screen</Typography>
+    </Box>
+  );
+};

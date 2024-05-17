@@ -10,16 +10,21 @@ import MenuItem from '@mui/material/MenuItem';
 import ChairIcon from '@mui/icons-material/Chair';
 import { colors } from '../../helpers/colors';
 import { fonts } from '../../helpers/fonts';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['Home', 'Shop', 'Community'];
+const pages = [
+  { name: 'Home', value: 'landing' },
+  { name: 'Shop', value: 'shop' },
+  { name: 'Community', value: 'community' }
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const navigate = useNavigate();
+  const handleCloseNavMenu = (val) => {
+    navigate(`/${val}`);
   };
 
   const handleCloseUserMenu = () => {
@@ -77,8 +82,10 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' }
               }}>
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
+                <MenuItem
+                  key={page}
+                  onClick={() => handleCloseNavMenu(page.value)}>
+                  <Typography textAlign='center'>{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -111,13 +118,13 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleCloseNavMenu(page.value)}
                 sx={{
                   color: colors.primaryText,
                   display: 'block',
                   fontFamily: fonts.primary
                 }}>
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>

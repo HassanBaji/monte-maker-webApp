@@ -2,30 +2,21 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import ChairIcon from '@mui/icons-material/Chair';
+import { colors } from '../../helpers/colors';
+import { fonts } from '../../helpers/fonts';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Home', 'Shop', 'Community'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -36,9 +27,21 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position='static'>
+    <AppBar
+      position='static'
+      sx={{ backgroundColor: colors.primaryYellow, padding: 0 }}
+      style={{ padding: 0 }}>
       <Container maxWidth='xl'>
-        <Toolbar disableGutters>
+        <Toolbar sx={{ padding: 0, mr: -12, ml: -12 }}>
+          <ChairIcon
+            sx={{
+              display: { xs: 'none', md: 'flex', color: colors.primaryText },
+              mr: 1,
+              width: 32,
+              height: 32
+            }}
+            color={colors.primaryText}
+          />
           <Typography
             variant='h6'
             noWrap
@@ -47,15 +50,14 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none'
+              color: colors.primaryText,
+              textDecoration: 'none',
+              fontFamily: fonts.primary
             }}>
-            MonteMaker
+            Montemaker
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <Menu
               id='menu-appbar'
@@ -97,25 +99,30 @@ function ResponsiveAppBar() {
               color: 'inherit',
               textDecoration: 'none'
             }}>
-            LOGO
+            Montemaker
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              ml: 4,
+              mt: 0.5
+            }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}>
+                sx={{
+                  color: colors.primaryText,
+                  display: 'block',
+                  fontFamily: fonts.primary
+                }}>
                 {page}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
-              </IconButton>
-            </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
               id='menu-appbar'

@@ -4,6 +4,7 @@ import { LandingScreen } from '../views/LandingScreen/LandingScreen'
 import { ShopScreen } from '../views/ShopScreen/ShopScreen'
 import { LoginScreen } from '../views/LoginScreen/LoginScreen'
 import { ProfileScreen } from '../views/ProfileScreen/ProfileScreen'
+import { CustomizeScreen } from '../views/CustomizeScreen/CustomizeScreen';
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,8 @@ export const router = createBrowserRouter([
       { path: 'landing', element: <LandingScreen /> },
       { path: 'shop', element: <ShopScreen /> },
       { path: 'profile', element: <ProfileScreen /> },
-      { path: 'login', element: <LoginScreen /> }
+      { path: 'login', element: <LoginScreen /> },
+      { path: 'customize', element: <CustomizeScreen /> }
     ]
   }
 ])

@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { WrapperScreen } from '../views/Wrappers/WrapperScreen';
 import { LandingScreen } from '../views/LandingScreen/LandingScreen';
 import { ShopScreen } from '../views/ShopScreen/ShopScreen';
+import { CustomizeScreen } from '../views/CustomizeScreen/CustomizeScreen';
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +15,8 @@ export const router = createBrowserRouter([
       },
       { path: 'landing', element: <LandingScreen /> },
       { path: 'shop', element: <ShopScreen /> },
-      { path: 'community', element: <LandingScreen /> }
+      { path: 'community', element: <LandingScreen /> },
+      { path: 'customize', element: <CustomizeScreen /> }
     ]
   }
 ]);

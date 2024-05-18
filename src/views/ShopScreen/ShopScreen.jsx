@@ -5,11 +5,14 @@ import Closet from '../../assets/closet.png';
 import Table from '../../assets/table.png';
 import Bed from '../../assets/bedTwo.png';
 
-import BackgroundThree from '../../assets/backgrounThree.png';
+
+import BackgroundThree from '../../assets/background.png';
+import { useNavigate } from 'react-router-dom';
 
 export const ShopScreen = () => {
+  const navigate = useNavigate();
   const items = [
-    { name: 'Table', src: Table },
+    { name: 'Desk', src: Table },
     { name: 'Closet', src: Closet },
     { name: 'Bed', src: Bed }
   ];
@@ -43,12 +46,12 @@ export const ShopScreen = () => {
         <Box
           sx={{
             position: 'absolute',
-            mt: -85,
-            ml: 4
+            mt: -90,
+            ml: 125
           }}>
           <Typography
             sx={{
-              fontSize: 100,
+              fontSize: 200,
               fontFamily: fonts.title,
               color: colors.primaryText
             }}>
@@ -56,12 +59,14 @@ export const ShopScreen = () => {
           </Typography>
           <Typography
             sx={{
-              fontSize: 20,
+              fontSize: 24,
               fontFamily: fonts.primary,
               color: colors.primaryText,
               width: '60%',
-              mt: -5,
-              mb: 2
+              mt: -9,
+              mb: 2,
+              ml: 16,
+              textAlign: 'center'
             }}>
             Create Your Perfect Kid-Friendly Furniture Design Today!
           </Typography>
@@ -118,7 +123,9 @@ export const ShopScreen = () => {
           direction={'row'}>
           {items.map((item, index) => (
             <Button
+              onClick={() => navigate('/customize')}
               key={index}
+              disableRipple
               sx={{
                 '&::after': {
                   border: 3,

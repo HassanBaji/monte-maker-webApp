@@ -5,6 +5,8 @@ import { colors } from '../../helpers/colors'
 import '../../style/Home'
 import '../../style/Home.css'
 
+import logo from '../../assets/logo-w.png'
+
 export const LandingScreen = () => {
   return (
     <div>
@@ -12,14 +14,19 @@ export const LandingScreen = () => {
         <div className="header">
           <div className="headerWrapper" style={{ zIndex: 1 }}>
             <div className="logo-wrapper" alt="logo">
-              <img className="logo" src="/logo-w.png" alt="Logo" />
+              <img
+                className="logo"
+                src={logo}
+                alt="Logo"
+                style={{ width: '13rem' }}
+              />
             </div>
             <br />
             <h1>
               <span>Crafting</span> <br /> <b>Leaders</b>
             </h1>
             <br />
-            <Link to="/ShopScreen" style={{ textDecoration: 'none' }}>
+            <Link to="/shop" style={{ textDecoration: 'none' }}>
               <Button
                 variant="contained"
                 sx={{

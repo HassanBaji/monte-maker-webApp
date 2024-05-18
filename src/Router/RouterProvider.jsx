@@ -3,6 +3,7 @@ import { WrapperScreen } from '../views/Wrappers/WrapperScreen'
 import { LandingScreen } from '../views/LandingScreen/LandingScreen'
 import { ShopScreen } from '../views/ShopScreen/ShopScreen'
 import { LoginScreen } from '../views/LoginScreen/LoginScreen'
+import { ProfileScreen } from '../views/ProfileScreen/ProfileScreen'
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
       },
       { path: 'landing', element: <LandingScreen /> },
       { path: 'shop', element: <ShopScreen /> },
-      { path: 'community', element: <LandingScreen /> },
+      { path: 'profile', element: <ProfileScreen /> },
       { path: 'login', element: <LoginScreen /> }
     ]
   }

@@ -12,10 +12,12 @@ import { colors } from '../../helpers/colors'
 import { fonts } from '../../helpers/fonts'
 import { useNavigate } from 'react-router-dom'
 
+import logo from '../../assets/logo.png'
+
 const pages = [
   { name: 'Home', value: 'landing' },
   { name: 'Shop', value: 'shop' },
-  { name: 'Community', value: 'community' }
+  { name: 'Profile', value: 'profile' }
   // { name: 'Login', value: 'login' }
 ]
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
@@ -39,33 +41,15 @@ function ResponsiveAppBar() {
       style={{ padding: 0 }}
     >
       <Container maxWidth="xl">
-        <Toolbar sx={{ padding: 0, mr: -12, ml: -12 }}>
-          <ChairIcon
-            sx={{
-              display: { xs: 'none', md: 'flex', color: colors.primaryText },
-              mr: 1,
-              width: 40,
-              height: 40
-            }}
-            color={colors.primaryText}
-          />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: colors.primaryText,
-              textDecoration: 'none',
-              fontFamily: fonts.primary
-            }}
-          >
-            Montemaker
-          </Typography>
+        <Toolbar sx={{ padding: 0 }}>
+          <div className="logo-wrapper" alt="logo">
+            <img
+              className="logo"
+              src={logo}
+              alt="Logo"
+              style={{ paddingTop: '12px' }}
+            />
+          </div>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <Menu
               id="menu-appbar"
